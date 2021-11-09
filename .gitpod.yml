@@ -1,2 +1,7 @@
 image:
   file: .gitpod.Dockerfile
+tasks:
+  - name: Build
+    command: emmake make all
+  - name: Clean
+    command: emmake make clean
