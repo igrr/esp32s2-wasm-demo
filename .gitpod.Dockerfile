@@ -10,3 +10,8 @@ RUN cd $HOME \
   && rm -rf zips
 
 ENV EMSDK_PATH=$HOME/emsdk
+
+COPY .gitpod.entrypoint.sh $HOME/entrypoint.sh
+
+ENTRYPOINT [ "$HOME/entrypoint.sh" ]
+CMD [ "/bin/bash" ]
