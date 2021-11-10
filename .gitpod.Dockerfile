@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full
+FROM espressif/idf:latest
 
 ARG EMSDK_VER=2.0.8
 

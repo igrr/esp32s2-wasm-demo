@@ -1,0 +1,3 @@
+[submodule "firmware/components/wasm3/wasm3"]
+	path = firmware/components/wasm3/wasm3
+	url = https://github.com/wasm3/wasm3.git

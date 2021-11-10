@@ -6,7 +6,7 @@
         {
             "label": "Build (emmake)",
             "type": "shell",
-            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make all",
+            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm all",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -16,7 +16,7 @@
         {
             "label": "Clean (emmake)",
             "type": "shell",
-            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make clean",
+            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm clean",
             "problemMatcher": []
         }
     ]
