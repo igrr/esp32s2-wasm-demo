@@ -4,7 +4,13 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build (emmake)",
+            "label": "Build (firmware)",
+            "type": "shell",
+            "command": "source ${IDF_PATH}/export.sh 1>/dev/null 2>/dev/null && idf.py -C firmware build dfu",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build (wasm)",
             "type": "shell",
             "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm all",
             "problemMatcher": [],
@@ -14,7 +20,7 @@
             }
         },
         {
-            "label": "Clean (emmake)",
+            "label": "Clean (wasm)",
             "type": "shell",
             "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm clean",
             "problemMatcher": []
