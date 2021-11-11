@@ -22,17 +22,17 @@ The demo has the following steps:
 
 ## Getting started with Gitpod workspace
 
-To get started, fork this Github project.
+To get started, create a project from this template by clicking "Use this template" on Github.
 
-Sign into gitpod.io, and create a new workspace based on the forked project.
+Sign into [gitpod.io](https://gitpod.io/) and create a new workspace based on the project you have created.
 
-The workspace contains Emscripten SDK installed into `$EMSDK_PATH`. If you want to use Emscripten SDK in the workspace terminal, run `. $EMSDK_PATH/emsdk_env.sh`.
+The workspace contains the project itself, ESP-IDF and Emscripten SDK.
 
 Inside the workspace, three _tasks_ are defined:
 
-* Build (firmware) — runs `idf.py build dfu` inside `firmware` directory
-* Build (wasm) — runs `emmake make all` inside `wasm` directory
-* Clean (wasm) — runs `emmake make clean` inside `wasm` directory
+* Build (firmware) — builds firmware (application for ESP32-S2)
+* Build (wasm) — builds WebAssmebly module
+* Clean (wasm) — cleans WebAssembly module output
 
 ## Step by step
 
