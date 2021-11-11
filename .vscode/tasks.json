@@ -12,7 +12,7 @@
         {
             "label": "Build (wasm)",
             "type": "shell",
-            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm all",
+            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && EM_CACHE=$HOME/.emcache emmake make -C wasm all",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -22,7 +22,7 @@
         {
             "label": "Clean (wasm)",
             "type": "shell",
-            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && emmake make -C wasm clean",
+            "command": "source ${EMSDK_PATH}/emsdk_env.sh 2>/dev/null && EM_CACHE=$HOME/.emcache emmake make -C wasm clean",
             "problemMatcher": []
         }
     ]
