@@ -20,9 +20,6 @@ static void delay_ms(int ms)
 
 static void wasm_ext_init(wasm3::module &mod)
 {
-    /* link WASI functions to the module */
-    m3_LinkEspWASI(mod.get_impl());
-
     /* link additional functions defined in this file */
     mod.link_optional("*", "delay_ms", delay_ms);
 }
@@ -33,6 +30,13 @@ static void wasm_ext_init(wasm3::module &mod)
 static std::string s_wasm_file_name;
 static size_t s_wasm_env_stack_size = 8 * 1024;
 
+class wasi_module: public wasm3::module
+{
+public:
+    void link_wasi() {
+        m3_LinkEspWASI(m_module.get());
+    }
+};
 
 static void wasm_task(void* arg)
 {
@@ -48,6 +52,7 @@ static void wasm_task(void* arg)
 
         wasm3::module mod = env.parse_module(wasm_file);
         runtime.load(mod);
+        ((wasi_module*) &mod)->link_wasi();  /* hack, this should be upstreamed to wasm3_cpp.h */
         wasm_ext_init(mod);
 
         wasm3::function start_fn = runtime.find_function("_start");
